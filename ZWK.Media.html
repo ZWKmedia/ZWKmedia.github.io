@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZWK Media - Social Media Marketing Experts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00f0ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #00f0ff;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 20px;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #00f0ff;
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #00f0ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,20,30,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1611162617213-6d7f115eb0e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80') no-repeat center center/cover;
+            position: relative;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #00f0ff, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00f0ff, #0077ff);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #111;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: #00f0ff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(30, 30, 40, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(40, 40, 50, 0.8);
+            border-color: #00f0ff;
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: #00f0ff;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #bbb;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: #000;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 240, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            color: #000;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: #000;
+            font-weight: 500;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: #111;
+            text-align: center;
+        }
+        
+        .coming-soon {
+            background: rgba(30, 30, 40, 0.6);
+            padding: 60px;
+            border-radius: 15px;
+            border: 1px solid #00f0ff;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .coming-soon h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #00f0ff;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #111 0%, #000 100%);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00f0ff;
+        }
+        
+        .contact-info p {
+            color: #bbb;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: rgba(30, 30, 40, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: rgba(10, 10, 20, 0.5);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #00f0ff;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #00f0ff, #0077ff);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 50px 0 20px;
+            border-top: 1px solid #222;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo .logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links h3 {
+            color: #00f0ff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #00f0ff;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+        
+        /* Form Submission Messages */
+        #form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+        }
+        
+        .success {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+        }
+        
+        .error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-rocket"></i>
+                ZWK MEDIA
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61576418172412" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/zwk.media" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>WE HELP BUSINESSES GROW THROUGH SOCIAL MEDIA MARKETING</h1>
+            <p>Strategic social media solutions to elevate your brand and drive results</p>
+            <a href="#contact" class="cta-button">GET STARTED</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">OUR SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Branding Consultation</h3>
+                    <p>Expert guidance to develop a strong, cohesive brand identity across all platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>Paid Ad Campaigns</h3>
+                    <p>Targeted advertising strategies to maximize reach and conversions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Content Strategy</h3>
+                    <p>Comprehensive plans for creating engaging, platform-specific content.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Social Media Management</h3>
+                    <p>Full-service management of your social media presence and engagement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <h3>Lead Generation Funnels</h3>
+                    <p>Strategically designed funnels to convert followers into customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">OUR PORTFOLIO</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fashion Brand" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Fashion Brand</h3>
+                        <p>Instagram Growth Campaign</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Auto Detailing Brand" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Auto Detailing Brand</h3>
+                        <p>Facebook & Instagram Ad Campaign</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Restaurant Chain" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Chain</h3>
+                        <p>Facebook Engagement Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">CLIENT TESTIMONIALS</h2>
+            <div class="coming-soon">
+                <h3>Coming Soon</h3>
+                <p>We're collecting testimonials from our satisfied clients. Check back soon to see what they have to say about our services!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>GET IN TOUCH</h2>
+                <p>Ready to take your social media presence to the next level? Contact us today to discuss how we can help your business grow through strategic social media marketing.</p>
+                <p>Fill out the form or contact us directly at <strong>zwk.media@gmail.com</strong></p>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+                <div id="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <i class="fas fa-rocket"></i>
+                        ZWK MEDIA
+                    </a>
+                    <p>We help businesses leverage the power of social media to achieve their marketing goals and drive growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61576418172412" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/zwk.media" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Branding Consultation</a></li>
+                        <li><a href="#">Paid Ad Campaigns</a></li>
+                        <li><a href="#">Content Strategy</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Lead Generation Funnels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> zwk.media@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 ZWK Media. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (in a real scenario, this would be an AJAX request)
+            setTimeout(function() {
+                // Show success message
+                const messageDiv = document.getElementById('form-message');
+                messageDiv.textContent = 'Thank you! Your message has been sent to zwk.media@gmail.com. We will contact you shortly.';
+                messageDiv.className = 'success';
+                messageDiv.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Reset button
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide message after 5 seconds
+                setTimeout(function() {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }, 1500);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
